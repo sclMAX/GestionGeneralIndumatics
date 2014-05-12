@@ -26,7 +26,8 @@ public class ServidorTry {
 	private static void createAndShowGUI() {
 		// Chequeo si esta soportado el SystemTry
 		if (!SystemTray.isSupported()) {
-			// Mostrar GUI Servidor por falta de soporte de TraySystem
+			frmServidor_Opciones frmOpciones = new frmServidor_Opciones();
+			frmOpciones.setVisible(true);
 			return;
 		}
 		final PopupMenu popup = new PopupMenu();
@@ -38,13 +39,13 @@ public class ServidorTry {
 		final SystemTray tray = SystemTray.getSystemTray();
 
 		//Creo los SubMenus
-		MenuItem menuAbrir = new MenuItem("Opciones");
+		MenuItem menuOpciones = new MenuItem("Opciones");
 		MenuItem menuStart = new MenuItem("Iniciar");
 		MenuItem menuStop = new MenuItem("Parar");
 		MenuItem menuExit = new MenuItem("Cerrar");
 
 		// Agrego los SubMenus al PopupMenu
-		popup.add(menuAbrir);
+		popup.add(menuOpciones);
 		popup.add(menuStart);
 		popup.addSeparator();
 		popup.add(menuStart);
@@ -72,10 +73,11 @@ public class ServidorTry {
 			}
 		});
 
-		menuAbrir.addActionListener(new ActionListener() {
+		menuOpciones.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//Codigo para abrir ventana de opciones
+				frmServidor_Opciones frmOpciones = new frmServidor_Opciones();
+				frmOpciones.setVisible(true);
 			}
 		});
 		menuStart.addActionListener(new ActionListener() {
